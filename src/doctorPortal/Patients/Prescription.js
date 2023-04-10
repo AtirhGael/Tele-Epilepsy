@@ -7,31 +7,35 @@ const Prescription = ({navigation}) => {
     const [text,setText] = useState('')
   return (
     
-    <View>
-        <ScrollView>
+    // Purple: #7851a9
+// Light blue: #088be9
+// Black: #2e2c2c
+
+    <View style={{flex:1, backgroundColor:"#fff"}}>
+        
       <View >
-            <Appbar.Header>
+            <Appbar.Header style={{ backgroundColor:"#fff"}}>
                 <Appbar.BackAction onPress={() => navigation.goBack()} />
                 <Appbar.Content title="Presccriptions"  />
-                <Appbar.Action icon="calendar" onPress={() => {}} />
-                 <Appbar.Action icon="magnify" onPress={() => {}} />
+               
             </Appbar.Header>
       </View>
+      <ScrollView>
       <View style={styles.textinputs}>
         <View>
             <Text style={styles.text}>Drug Name </Text>
             <TextInput
                 style={styles.input}
-                placeholder="useless placeholder"
+                placeholder="medications"
                 
             />
         </View>
         
         <View>
-            <Text style={styles.text}>Usage </Text>
+            <Text style={styles.text}>Dosage </Text>
             <TextInput
                 style={styles.input}
-                placeholder="useless placeholder"
+                placeholder="Text"
                
             />
         </View>
@@ -39,7 +43,7 @@ const Prescription = ({navigation}) => {
             <Text style={styles.text}>Date To Start </Text>
             <TextInput
                 style={styles.input}
-                placeholder="useless placeholder"
+                placeholder="01/10/2023"
                
             />
         </View>
@@ -51,10 +55,19 @@ const Prescription = ({navigation}) => {
              
             />
         </View>
+
+        <View style={styles.last}>
+            <View style={{height:60,width:120,backgroundColor:'#7851a9',borderBottomLeftRadius:25,borderTopLeftRadius:25}}>
+            </View>
+            <Button style={{justifyContent:'center',alignItems:'center'}}>
+                <Text> Upload a Photo</Text>
+            </Button>
+        </View>
       
         </View>
+        
         <View style={styles.button}>
-            <Button icon="av-timer" mode="contained" style={{ height:45}}>
+            <Button  mode="contained" style={{ height:45}}>
                 Confirm Prescription
             </Button>
         </View>
@@ -74,19 +87,29 @@ const styles = StyleSheet.create({
     text:{
         fontSize:17,
         paddingLeft:20,
-
+        fontWeight:'600'
     },
     input:{
-        borderRadius:10,
+        borderRadius:25,
         height: 50,
         margin: 12,
         borderWidth: 1,
         padding: 10,
+        borderColor:'#7851a9',
     },
     button:{
         gap:10,
         justifyContent:'flex-end',
         padding:20,
-        marginTop:100,
+        
+    },
+    last:{
+        height:60,
+        borderWidth:1,
+        borderColor:'#7851a9',
+        borderRadius:22,
+        display:'flex',
+        flexDirection:'row',
+        // alignItems:'center',
     }
 })

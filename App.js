@@ -12,6 +12,10 @@ import Prescription from './src/doctorPortal/Patients/Prescription';
 import BookAppointment from './src/doctorPortal/Patients/BookAppointment';
 import PatientRegistration from './src/doctorPortal/Patients/PatientRegistration';
 import Myappointments from './src/doctorPortal/ViewSchedule/Myappointments';
+import MyAppoinments from './src/doctorPortal/ViewSchedule/MyAppoinments';
+import Contact from './src/doctorPortal/Components/Contact';
+import Terms from './src/doctorPortal/Components/Terms';
+import Policy from './src/doctorPortal/Components/Policy';
 
 
 const Stack = createNativeStackNavigator();
@@ -32,6 +36,11 @@ export default function App() {
         <Stack.Screen name="booking" component={BookAppointment} />
         <Stack.Screen name="patientInfo" component={PatientRegistration} />
         <Stack.Screen name="myappointment" component={Myappointments} />
+        <Stack.Screen name="appointment" component={MyAppoinments} />
+        <Stack.Screen name="contact" component={Contact} />
+        <Stack.Screen name="terms" component={Terms} />
+        <Stack.Screen name="policy" component={Policy} />
+
       </Stack.Navigator>
     </NavigationContainer>
     </Provider>

@@ -2,16 +2,17 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Appbar,Surface } from 'react-native-paper';
 import { TouchableOpacity } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { FontAwesome } from '@expo/vector-icons';
 
 const Home = ({navigation}) => {
   return (
-    <View>
+    <View style={{flex:1, backgroundColor:'#fff', paddingLeft:10,paddingRight:10}}>
         <View>
-            <Appbar.Header>
+            <Appbar.Header style={{ backgroundColor:"#fff",padding:20}}>
                 <Appbar.Content title="Tele-Epilepsy" ty />
-                <Appbar.Action icon="calendar" onPress={() => {}} />
+                <View style={{ height:50, width:50,borderRadius:10,backgroundColor:'white',alignItems:'center',justifyContent:'center'}}>
+                  <FontAwesome name="bell-o" size={35} color="#088be9"  />
+                </View>
             
             </Appbar.Header>
         </View>
@@ -19,14 +20,14 @@ const Home = ({navigation}) => {
             <TouchableOpacity
             onPress={() => navigation.navigate('allpatients')}
             >
-                <Surface style={styles.surface} elevation={4}>
+                <Surface style={styles.surface} elevation={2} >
                     <Text>Patients</Text>
                 </Surface>
             </TouchableOpacity>
             <TouchableOpacity 
             onPress={() => navigation.navigate('myappointment')}
             >
-                <Surface style={styles.surface} elevation={4}>
+                <Surface style={styles.surface} elevation={2}>
                     <Text>View Schedule</Text>
                 </Surface>
             </TouchableOpacity>
@@ -50,7 +51,8 @@ const styles = StyleSheet.create({
         width: 180,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius:35,
+        borderRadius:35,   
+        backgroundColor:'#7851a9'     
       },
     choice:{
         paddingTop:20,

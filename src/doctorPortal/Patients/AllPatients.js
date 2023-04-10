@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Appbar } from 'react-native-paper';
 import { FlatList } from 'react-native';
@@ -8,15 +8,16 @@ import { TouchableOpacity } from 'react-native';
 
 const AllPatients = ({navigation}) => {
   return (
-    <View>
+    <View style={{flex:1, backgroundColor:"#fff"}}>
       <View >
-        <Appbar.Header>
-                <Appbar.BackAction onPress={() => navigation.goBack()} />
+        <Appbar.Header style={{ backgroundColor:"#fff"}}>
+                <Appbar.BackAction onPress={() => navigation.goBack()} size={30} />
                 <Appbar.Content title="All Patients"  />
             
             </Appbar.Header>
       </View>
 
+        <ScrollView>
       <View style={styles.twoRows}>
         
             <FlatList
@@ -49,6 +50,7 @@ const AllPatients = ({navigation}) => {
             
         
       </View>
+      </ScrollView>
     </View>
   )
 }

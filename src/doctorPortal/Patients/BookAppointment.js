@@ -11,7 +11,7 @@ const BookAppointment = ({navigation}) => {
     }
   return (
     <View>
-        <ScrollView>
+        <ScrollView> 
        <View >
             <Appbar.Header>
                 <Appbar.BackAction onPress={() => navigation.goBack()} />

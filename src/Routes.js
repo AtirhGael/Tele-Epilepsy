@@ -3,6 +3,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Home from './doctorPortal/Home';
 import History from './doctorPortal/History';
 import Menu from './doctorPortal/Menu';
+// import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { View } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,13 +15,15 @@ function Routes() {
       initialRouteName="Feed"
       screenOptions={{
         headerShown:false,
-        tabBarActiveTintColor: '#e91e63',
+        tabBarActiveTintColor: '#088be9'
       }}
     >
-      <Tab.Screen
+     
+     <Tab.Screen
         name="Feed"
         component={Home}
         options={{
+          
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
@@ -29,20 +34,20 @@ function Routes() {
         name="Notifications"
         component={History}
         options={{
-          tabBarLabel: 'Updates',
+          tabBarLabel: 'History',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
+            <MaterialCommunityIcons name="history" size={size} color={color} />
           ),
-          tabBarBadge: 5,
+          
         }}
       />
       <Tab.Screen
         name="Profile"
         component={Menu}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'Menu',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
+            <FontAwesome5 name="grip-lines" size={size} color={color} />
           ),
         }}
       />
@@ -50,3 +55,4 @@ function Routes() {
   );
 }
 export default Routes
+
