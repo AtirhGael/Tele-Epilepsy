@@ -1,46 +1,53 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Routes from './src/Routes';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {  Provider } from 'react-native-paper';
 import { name as appName } from './app.json';
 import { AppRegistry } from 'react-native';
-import AllPatients from './src/doctorPortal/Patients/AllPatients';
-import PatientDetails from './src/doctorPortal/Patients/PatientDetails';
-import Prescription from './src/doctorPortal/Patients/Prescription';
-import BookAppointment from './src/doctorPortal/Patients/BookAppointment';
-import PatientRegistration from './src/doctorPortal/Patients/PatientRegistration';
-import Myappointments from './src/doctorPortal/ViewSchedule/Myappointments';
-import MyAppoinments from './src/doctorPortal/ViewSchedule/MyAppoinments';
-import Contact from './src/doctorPortal/Components/Contact';
-import Terms from './src/doctorPortal/Components/Terms';
-import Policy from './src/doctorPortal/Components/Policy';
+import Doctor from './src/Navigation/Doctor';
+import Patient from './src/Navigation/Patient';
+import Second from './src/Welcome/Second'
+import First from './src/Welcome/First';
+import Congrats from './src/Welcome/Congrats'
+import Portal from './src/Welcome/Portal'
+import Choice from './src/Welcome/Choice'
+import SignIn from './src/doctorPortal/SignIn';
+import SignUp from './src/patientPortal/Signup'
+import SignInP from './src/patientPortal/SignIn'
 
-
+SignInP
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <Provider>
+      {/* <Congrats/> */}
+      {/* <Login/> */}
+      {/* <SignUp/> */}
+      {/* <Second/> */}
+      {/* <First/> */}
+      {/* <Portal/> */}
     <NavigationContainer>
-      <Stack.Navigator
+    <Stack.Navigator
       screenOptions={{
         headerShown:false,
       }}
       >
-        <Stack.Screen name="Route" component={Routes} />
-        <Stack.Screen name="allpatients" component={AllPatients} />
-        <Stack.Screen name="patientdetail" component={PatientDetails} />
-        <Stack.Screen name="prescriptions" component={Prescription} />
-        <Stack.Screen name="booking" component={BookAppointment} />
-        <Stack.Screen name="patientInfo" component={PatientRegistration} />
-        <Stack.Screen name="myappointment" component={Myappointments} />
-        <Stack.Screen name="appointment" component={MyAppoinments} />
-        <Stack.Screen name="contact" component={Contact} />
-        <Stack.Screen name="terms" component={Terms} />
-        <Stack.Screen name="policy" component={Policy} />
-
+      
+      {/* <Patient/> */}
+      {/* <Doctor/> */}
+      <Stack.Screen name='first' component={First} />
+      <Stack.Screen name='second' component={Second} />
+      <Stack.Screen name='Portal' component={Portal} />
+      <Stack.Screen name='Congrats' component={Congrats} />
+      <Stack.Screen name='SigninD' component={SignIn} />
+      <Stack.Screen name='SignUp' component={SignUp} />
+      <Stack.Screen name='SignInP' component={SignInP} />
+      <Stack.Screen name='Choice' component={Choice} />
+      <Stack.Screen name='patient' component={Patient} />
+      <Stack.Screen name='Doctor' component={Doctor} />
+      
       </Stack.Navigator>
     </NavigationContainer>
     </Provider>

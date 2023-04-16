@@ -1,32 +1,35 @@
 import { StyleSheet, Text, View,Image } from 'react-native'
 import React from 'react'
 import { useRoute } from '@react-navigation/native'
-import {Appbar,Button } from 'react-native-paper'
+import {Appbar,Button,Avatar } from 'react-native-paper'
+import { ScrollView } from 'react-native'
 
 const PatientRegistration = ({navigation}) => {
     const route = useRoute()
 
   return (
-    <View>
+    <View style={{flex:1, backgroundColor:'#fff'}}>
         <Appbar.Header style={styles.header}>
-                <Appbar.BackAction onPress={() => navigation.goBack()} />
-                <Appbar.Content title={route.params.name}  />
+                <Appbar.BackAction size={40} onPress={() => navigation.goBack()} />
+                <Appbar.Content title={route.params.name}titleStyle={{fontSize:30,fontWeight:'700'}} />
                
-                <Image source={route.params.image}
-                style={styles.image}
-                 />
+                <Avatar.Image size={60} source={route.params.image} />
             </Appbar.Header>
        
             <View style={{
             paddingTop:25,
             paddingLeft:10,
-
+            height:'60%'
         }}>
+        <ScrollView>
             <Text style={styles.upcoming}>Registration Information</Text>
+        </ScrollView>
         </View>
-        <View style={{ padding:20,marginTop:400 }}>
-        <Button  mode="contained" style={{ height:45}}>
-                Confirm Prescription
+        <View style={{ padding:20,height:'20%',justifyContent:'flex-end'}}>
+        <Button style={{ height:45, backgroundColor:'red',elevation:1,}}>
+            <Text style={{color:'#fff',fontWeight:'400',fontSize:18}}>
+               Delete Patient
+            </Text>
             </Button>
         </View>
 
@@ -41,6 +44,10 @@ const styles = StyleSheet.create({
     header:{
         height:100,
         marginRight:10,
+        backgroundColor:'#fff',
+        alignItems:'center',
+        justifyContent:'center',
+        header:'20%'
     },
     image:{
         height:66,
@@ -51,6 +58,7 @@ const styles = StyleSheet.create({
     },
     upcoming:{
         fontSize:20,
-        fontWeight:'bold'
+        fontWeight:'bold',
+        padding:20
     },
 })

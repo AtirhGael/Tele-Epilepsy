@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, View,Image } from 'react-native'
+import { FlatList, StyleSheet, Text, View,Image, ScrollView,TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Chip } from 'react-native-paper';
 import data from '../Data';
@@ -6,30 +6,36 @@ import data from '../Data';
 const Past = () => {
   return (
     <View>
-      <Text>yesteday </Text>
+        <ScrollView>
+            <Text style={{padding:20,fontSize:18,fontWeight:'500'}}>Yesterday</Text>
       <View style={{padding:15}}>
         <FlatList
         data={data}
-        renderItem={({item})=>(
-           <View>
+        renderItem={({item})=>{
+            return(
+                <View>
            <View style={styles.main}>
                 <View style={styles.container}>
                     <Image source={item.image} style={styles.image}/>
                     <View style={{gap:8}}>
                         <Text style={styles.name}> {item.name} </Text>
-                        <Text style={styles.call}> Voice call</Text>
+                        <Text style={styles.call}> Voice call - <Text> {item.status}</Text> </Text>
                         <Text style={styles.time}> 13:00 - 15:00 AM </Text>
                     </View>
                 </View>
-                <View style={{paddingTop:80, paddingRight:5}}>
-                    <Text style={{fontWeight:'600'}} > Cancelled </Text>
+                <TouchableOpacity onPress={()=>navigation.navigate('appointment',item)} >
+                <View style={styles.icon}>
+                    {item.icon}
                 </View>
+                </TouchableOpacity>
             </View>
             <View style={{height:10}} ></View>
            </View>
-        )}
+            )
+        }}
         />
       </View>
+      </ScrollView>
     </View>
   )
 }
@@ -40,11 +46,12 @@ const styles = StyleSheet.create({
     main:{
         display:'flex',
         flexDirection:'row',
-        // alignItems:'baseline',
+        alignItems:'center',
         justifyContent:'space-between',
         borderColor:'gray',
         borderWidth:1,
         borderRadius:10,
+        paddingRight:5,
         
     },
     container:{
@@ -64,7 +71,15 @@ const styles = StyleSheet.create({
         fontWeight:'800'
     },
     call:{
-        fontSize:18,
-        
+        fontSize:13,
+    },
+    icon:{
+        height:45,
+        width:45,
+        borderRadius:8,
+        backgroundColor:'#9bedff',
+        alignItems:'center',
+        justifyContent:'center',
+
     }
 })

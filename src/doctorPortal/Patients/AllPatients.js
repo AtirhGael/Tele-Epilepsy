@@ -6,17 +6,18 @@ import data from '../Data'
 import { Avatar } from 'react-native-paper';
 import { TouchableOpacity } from 'react-native';
 
+
 const AllPatients = ({navigation}) => {
   return (
     <View style={{flex:1, backgroundColor:"#fff"}}>
       <View >
         <Appbar.Header style={{ backgroundColor:"#fff"}}>
                 <Appbar.BackAction onPress={() => navigation.goBack()} size={30} />
-                <Appbar.Content title="All Patients"  />
+                <Appbar.Content title="All Patients"  titleStyle={{fontSize:28,fontWeight:'600'}} />
             
             </Appbar.Header>
       </View>
-
+    
         <ScrollView>
       <View style={styles.twoRows}>
         
@@ -25,7 +26,7 @@ const AllPatients = ({navigation}) => {
                 contentContainerStyle={{
                     alignSelf: 'center',
                     alignItems: 'center',
-                    gap:20,
+                    gap:10,
                     }}
                 columnWrapperStyle={{flexWrap: 'wrap'}}
                 numColumns={2}
@@ -34,7 +35,7 @@ const AllPatients = ({navigation}) => {
                     onPress={()=>navigation.navigate('patientdetail',item)}
                     >
                         <View style={styles.align}>
-                        <Avatar.Image size={140} source={item.image} />
+                        <Avatar.Image size={120} source={item.image} />
                         <Text style={{
                             fontSize:30,
                         }}>

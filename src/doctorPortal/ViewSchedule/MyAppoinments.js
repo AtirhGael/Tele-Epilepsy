@@ -4,12 +4,15 @@ import {Appbar,Avatar} from 'react-native-paper'
 import { useRoute } from '@react-navigation/native'
 
 
+// Purple: #7851a9
+// Light blue: #088be9
+// Black: #2e2c2c
 const MyAppoinments = ({navigation}) => {
    const route =  useRoute()
   return (
     <ScrollView>
-        <View>
-        <Appbar.Header>
+        <View  style={{flex:1, backgroundColor:"#fff"}} >
+        <Appbar.Header  style={{backgroundColor:"#fff"}}>
                 <Appbar.BackAction onPress={() => navigation.goBack()} />
                 <Appbar.Content title="My Appoinments"  />
                 <Appbar.Action icon="magnify" onPress={() => {}} />

@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View,TextInput } from 'react-native'
+import { StyleSheet, Text, View,TextInput,Alert, Modal, Pressable,} from 'react-native'
 import React, { useState } from 'react'
 import {Appbar, Button} from 'react-native-paper'
 import { ScrollView } from 'react-native'
+import Pupup from '../ViewSchedule/Popup'
+
 
 const Prescription = ({navigation}) => {
-    const [text,setText] = useState('')
+    const [modalVisible, setModalVisible] = useState(false);
+
   return (
+    
     
     // Purple: #7851a9
 // Light blue: #088be9
@@ -15,8 +19,8 @@ const Prescription = ({navigation}) => {
         
       <View >
             <Appbar.Header style={{ backgroundColor:"#fff"}}>
-                <Appbar.BackAction onPress={() => navigation.goBack()} />
-                <Appbar.Content title="Presccriptions"  />
+                <Appbar.BackAction size={34} onPress={() => navigation.goBack()} />
+                <Appbar.Content title="Presccriptions" titleStyle={{fontSize:25,fontWeight:'600'}} />
                
             </Appbar.Header>
       </View>
@@ -66,12 +70,14 @@ const Prescription = ({navigation}) => {
       
         </View>
         
-        <View style={styles.button}>
-            <Button  mode="contained" style={{ height:45}}>
-                Confirm Prescription
-            </Button>
-        </View>
+        <Pupup
+        name='Confirm Prescription'
+         />
+         {/* for failed, use <Fpopup/> */}
+
+
         </ScrollView>
+
     </View>
     
   )
@@ -97,11 +103,11 @@ const styles = StyleSheet.create({
         padding: 10,
         borderColor:'#7851a9',
     },
-    button:{
+    button1:{
         gap:10,
         justifyContent:'flex-end',
         padding:20,
-        
+        elevation: 2,
     },
     last:{
         height:60,
@@ -111,5 +117,46 @@ const styles = StyleSheet.create({
         display:'flex',
         flexDirection:'row',
         // alignItems:'center',
-    }
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 22,
+      },
+      modalView: {
+        margin: 20,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 35,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+      },
+      button: {
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2,
+      },
+      buttonOpen: {
+        backgroundColor: '#F194FF',
+      },
+      buttonClose: {
+        backgroundColor: '#2196F3',
+      },
+      textStyle: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+      },
+      modalText: {
+        marginBottom: 15,
+        textAlign: 'center',
+      },
 })
